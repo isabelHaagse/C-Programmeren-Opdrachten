@@ -13,22 +13,25 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Source Files\Prak1">
+      <UniqueIdentifier>{afe17cff-eb9a-4b34-9a05-5ca34f99d03a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Prak1_Opdracht1.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Prak1_Opdracht2.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="runfile.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Prak1_Opdracht1.c">
+      <Filter>Source Files\Prak1</Filter>
+    </ClCompile>
+    <ClCompile Include="Prak1_Opdracht2.c">
+      <Filter>Source Files\Prak1</Filter>
+    </ClCompile>
     <ClCompile Include="Prak1_Opdracht3.c">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Prak1</Filter>
     </ClCompile>
     <ClCompile Include="Prak1_Oprdracht4.c">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Prak1</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
