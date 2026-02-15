@@ -56,7 +56,7 @@ int setupSpel() {
 	scanf_s("%d", &bovengrens);
 
 	int random_getal = randomGetalMaker(ondergrens, bovengrens);
-	printf("%d", random_getal);
+	//printf("%d", random_getal);
 
 	return random_getal;
 }

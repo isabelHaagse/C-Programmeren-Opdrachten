@@ -36,6 +36,6 @@ void belastingCalc_main() {
 	printf("Voer uw inkomen in: \n");
 	scanf_s("%lf", &inkomsten);
 
-	printf("Dan is uw inkomst belasting %.2lf euro.\n", belastingCalculator(inkomsten));
+	printf("Dan is uw inkomstenbelasting %.2lf euro.\n", belastingCalculator(inkomsten));
 }
 

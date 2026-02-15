@@ -1,9 +1,9 @@
 
 #include <stdio.h>
 
-#define AANTALBOWLINGFRAMES 5
+#define AANTALBOWLINGFRAMES 10
 #define AANTALBOWLINGPINNEN 10
-#define AANTALBOWLINGSPELERS 2
+#define AANTALBOWLINGSPELERS 1
 #define MAXAANTALBOWLINGWORPENPERFRAME 5
 
 
@@ -12,10 +12,9 @@
 * Als de alle pinnen in de eerste worp van de frame in 1x zijn omgegooid -> strike.
 * Bij een strike: punten van de volgende 2 worpen worden bij de score opgeteld.
 * 
-* Als de alle pinnen in in meer dan 1 worp zijn omgegooid -> spare.
+* Als de alle pinnen in meer dan 1 worp zijn omgegooid maar in dezelfde frame -> spare.
 * Bij een spare: punten van de volgende worp worden bij de score opgeteld.
 */
-
 
 
 /*
@@ -37,6 +36,7 @@ unsigned int aantalWorpenSpeler(max_aantal_worpen, speler) {
 	printf("Voer het aantal worpen in dat speler %d per frame (beurt) mag gooien: ", speler);
 	return (checkwaarde(max_aantal_worpen));
 }
+
 
 /*
 * Mainloop voor de bowling opdracht.
@@ -103,6 +103,12 @@ void bowling_main() {
 					if (strike[speler] > 1) {
 						strike[speler] -= 1;
 					}
+					
+					if (strike[speler] > 0 && aantal_worpen_per_speler[speler] == 1 && frame > 1) {
+						if (omgegooid[speler][frame - 2][worp] == 10) {
+							strike[speler] -= 1;
+						}						
+					}
 				}
 
 				if (worp == 1 && strike[speler] > 0) {
@@ -143,7 +149,7 @@ void bowling_main() {
 			printf("Voer waarde van de eerste worp voor speler %d in: ", (speler + 1));
 			extra_score += checkwaarde(aantal_pinnen);
 
-			if (spare[speler] > 0) {
+			if (strike[speler] > 1) {
 				extra_score += extra_score;
 			}
 
@@ -158,7 +164,7 @@ void bowling_main() {
 		
 		score[speler] += extra_score;
 
-		printf("Eindscore voor speler %d: %d\n", (speler + 1), score[speler]);
+		printf("Eindscore voor speler %d: %d\n", (speler + 1), score[speler]); 
 	}
 
 
