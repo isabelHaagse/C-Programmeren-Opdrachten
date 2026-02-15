@@ -1,20 +1,35 @@
 
 #include <stdio.h>
 
-#define AANTALBOWLINGFRAMES 10
-#define AANTALBOWLINGPINNEN 10
-#define AANTALBOWLINGSPELERS 1
-#define MAXAANTALBOWLINGWORPENPERFRAME 5
-
-
 /*
+* Practicum 1 Opdracht 4 Bowlingscores bereken
+* 
+* Bij deze opdracht kan de gebruiker de omgegooide bowlingpinnen invoeren, het programma berekent dan de score(s) van de speler(s)
+* Het programma kan aangepast worden zodat er verschillende aantallen spelers kunnen spelen. Dit gebeurt in de define AANTALBOWLINGSPELERS hieronder.
+*
 * Bowling regels die zijn aangehouden:
 * Als de alle pinnen in de eerste worp van de frame in 1x zijn omgegooid -> strike.
 * Bij een strike: punten van de volgende 2 worpen worden bij de score opgeteld.
 * 
 * Als de alle pinnen in meer dan 1 worp zijn omgegooid maar in dezelfde frame -> spare.
 * Bij een spare: punten van de volgende worp worden bij de score opgeteld.
+* 
+* Als het programma opgestart wordt, worden de spelers gevraagd hoeveel worpen zij per frame mogen gooien. Dit was de uitdagingsopdracht in het practicum.
+* 
+* Daarna wordt er per frame per speler gevraagd hoeveel pinnen zij hebben omgegooid per worp.
+* Na het invullen van de pinnen per frame wordt de tussenscore geprint op het scherm.
+* Daarna wordt hetzelfde gevraagd en weergegeven voor de volgende speler(s).
+* 
+* Aan het einde wordt bekeken of spelers nog een extra worp of worpen mogen gooien
+*	Dat komt voor als een speler in de laatste frame een strike of spare hebben gegooid
+* 
+* Als laatst wordt de eindscore van alle spelers weergegeven. 
 */
+
+#define AANTALBOWLINGFRAMES 10
+#define AANTALBOWLINGPINNEN 10
+#define AANTALBOWLINGSPELERS 1
+#define MAXAANTALBOWLINGWORPENPERFRAME 5
 
 
 /*

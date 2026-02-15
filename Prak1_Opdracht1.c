@@ -1,6 +1,17 @@
 
 #include <stdio.h>
 
+/*
+* Practicum 1 Opdracht 1 Inkomstenbelasting
+* 
+* In dit practicum werd gevraagd om voor de inkomstenbelasting over een bepaald inkomen te berekenen.
+* De waardes stonden gegeven op de site van de overheid via deze link:
+* https://www.belastingdienst.nl/wps/wcm/connect/nl/werk-en-inkomen/content/hoeveel-inkomstenbelasting-betalen
+* Hierbij zijn de belastingtarieven van 2026 aangehouden.
+* 
+* Er is geen rekening gehouden met personen die dit jaar AOW krijgen.
+*/
+
 
 double belastingCalculator(double inkomsten) {
 	double belasting = 0;

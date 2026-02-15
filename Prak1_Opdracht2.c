@@ -2,6 +2,24 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+/*
+* Practicum 1 Opdracht 2 Hoger lager spel
+* 
+* In deze opdracht werd gevraagd om een hoger lager spelletje te maken.
+* In dit spelletje wordt eerst gevraagd tussen welke waardes het te raden getal mag liggen, de grenswaardes.
+* Het te raden getal wordt vervolgens in een aparte functie berekend, randomGetalMaker(int, int);
+* Vervolgens mag het te raden getal in een x aantal beurten worden geraden.
+* 
+* Na elke gok wordt aangegeven of het getal te raden getal hoger of lager ligt dan het gegokte getal.
+*	Als de speler niet het goede getal raad binnen het x aantal beurten, heeft de speler verloren.
+*	Als de speler wel het goede getal raad binnen de x aantal beurten, heeft de speler gewonnen.
+* 
+* In beide gevallen worden alle geraden getallen weergegeven op het scherm.
+* Tot slot wordt gevraagd of de speler het spel opnieuw wil spelen:
+*	Als de speler een '1' invult, zal het spel opnieuw beginnen met een nieuw te raden getal.
+*	Als de speler een ander teken invult, stopt het programma.
+*/
+
 #define AANTALBEURTEN 5
 
 void hetSpel() {

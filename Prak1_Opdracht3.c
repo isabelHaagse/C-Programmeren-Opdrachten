@@ -1,4 +1,27 @@
 
+/*
+* Practicum 1 Opdracht 3 Beoordeling berekenen van een module
+* 
+* In deze opdracht werd gevraagd om de beoordeling van een module voor een student te berekenen.
+* Er zijn 3 mogelijkheden voor de beoordeling:
+*	1. De student heeft de module niet behaald.
+*	2. De student heeft de module met lof behaald.
+*	3. De student heeft de module 'normaal' behaald.
+* 
+* Deze 3 mogelijkheden worden onderscheden door het gemiddelde en een minimum waarde voor de behaalde cijfers.
+* 
+* Het gemiddelde wordt berekend door middel van de berekenGemiddeldeCijfer(float[], unsigned int) functie.
+* Er wordt gekeken met de aantalTeLageCijfers(float[], float, unsigned int) functie of er cijfers zijn die te laag zijn om aan een beoordeling te voldoen.
+* 
+* Aangezien de standaard beoordeling van een voldoende word bepaald doordat er 1 cijfer een 4 mag zijn en de rest moet hoger dan een 4 zijn.
+* Hierdoor moet de aantalTeLageCijfers() 2x worden aangeroepen:
+*	1x om te kijken of er meer cijfers een 4 of lager zijn
+*	1x om te kijken of er cijfers onder de 4 zijn
+* Met lof hoeft zo niet bepaald te worden, aangezien deze alleen de eis hebben om niet lager te zijn dan een 7 in dit geval.
+* 
+* Aan het einde van het programma wordt de beoordeling van de module gegeven voor de student.
+*/
+
 // Er moeten 4 regels aan code worden aangepast, als het regelement wordt aangepast.
 // Aanpassing bij regelement verandering
 #define AANTALDEELCIJFERS 6
