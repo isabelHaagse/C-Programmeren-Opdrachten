@@ -1,0 +1,36 @@
+Thuis 1 - 0 PSV
+Thuis 0 - 3 ADO Den Haag
+Thuis 2 - 0 Excelsior
+Thuis 1 - 1 HERA United
+Thuis 2 - 1 sc Heerenveen
+Thuis 0 - 0 NAC Breda
+Thuis 0 - 0 FC Twente
+Thuis 1 - 2 FC Utrecht
+Thuis 3 - 3 Ajax
+Thuis 1 - 0 AZ
+Thuis 0 - 3 PEC Zwolle
+Thuis 1 - 4 PSV
+Thuis 0 - 0 ADO Den Haag
+Thuis 2 - 2 Excelsior
+Thuis 0 - 1 HERA United
+Thuis 2 - 1 sc Heerenveen
+Thuis 2 - 0 NAC Breda
+Uit 0 - 1 FC Twente
+Uit 1 - 0 FC Utrecht
+Uit 3 - 4 Ajax
+Uit 0 - 0 AZ
+Uit 0 - 0 PEC Zwolle
+Uit 1 - 2 PSV
+Uit 0 - 1 ADO Den Haag
+Uit 2 - 3 Excelsior
+Uit 1 - 6 HERA United
+Uit 2 - 2 sc Heerenveen
+Uit 9 - 0 NAC Breda
+Uit 3 - 0 FC Twente
+Uit 0 - 0 FC Utrecht
+Uit 1 - 3 Ajax
+Uit 2 - 1 AZ
+Uit 0 - 0 PEC Zwolle
+Uit 1 - 1 Feyenoord
+Uit 0 - 2 ADO Den Haag
+Uit 2 - 3 Excelsior

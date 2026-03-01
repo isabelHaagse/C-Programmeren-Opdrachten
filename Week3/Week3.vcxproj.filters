@@ -15,19 +15,10 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Prac1_Opdracht1.c">
+    <ClCompile Include="..\Week1\runfile.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Prac1_Opdracht2.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Prac1_Opdracht3.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Prac1_Oprdracht4.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="runfile.c">
+    <ClCompile Include="Prac3-Opdr1.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
