@@ -1,1 +1,1 @@
-# C-Programmeren-Practicums
+# C-Programmeren-Practica
