@@ -21,5 +21,8 @@
     <ClCompile Include="Prac3-Opdr1.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Prac3-Opdr2.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

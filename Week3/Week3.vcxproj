@@ -125,6 +125,7 @@
   <ItemGroup>
     <ClCompile Include="..\Week1\runfile.c" />
     <ClCompile Include="Prac3-Opdr1.c" />
+    <ClCompile Include="Prac3-Opdr2.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
