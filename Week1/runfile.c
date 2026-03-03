@@ -21,7 +21,9 @@ int main(void) {
 
     // Week 3
     //afdruk_array_main(); // Opdracht 1
-    returnWaarde = random_array_main(); // Opdracht 2
+    //returnWaarde = random_array_main(); // Opdracht 2
+    returnWaarde = vakken_main(); // Opdracht 3
+
 
 	return returnWaarde;
 }
