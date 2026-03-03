@@ -1,7 +1,7 @@
 
 /*
 	Doel van de opdracht: Leren omgaan met pointers en structs.
-	Er dienen array's gemaakt te worden met een variabele lengte.
+	Er moet een array van structers worden aangepast op verschillende manieren
 */
 
 #include <stdio.h>
@@ -11,6 +11,14 @@ struct vak {
 	char naam[20];
 	int ECTS;
 };
+
+/*
+	Functie: verander_vak_return_struct
+	Return:
+		vak, het nieuwe vak.
+	Beschrijving:
+		Deze functie veranderd een item van de lijst door een vak terug te geven van de functie.
+*/
 
 struct vak verander_vak_return_struct() {
 	struct vak nieuwVak = { 0 };
@@ -39,6 +47,14 @@ struct vak verander_vak_return_struct() {
 }
 
 
+/*
+	Functie: verander_vak_parameter_struct
+	Parameter:
+		struct vak* vak: er dient een vak meegegeven te worden.
+	Beschrijving:
+		Deze functie veranderd een item van de lijst door de locatie van een vak mee te krijgen en de inhoud aan te passen.
+*/
+
 void verander_vak_parameter_struct(struct vak* vak) {
 	char nieuweNaam[20] = { 0 };
 	int aantalECTS = 0;
@@ -62,6 +78,15 @@ void verander_vak_parameter_struct(struct vak* vak) {
 	vak->ECTS = aantalECTS;
 }
 
+
+/*
+	Functie: verander_vak_parameter_array_pointers
+	Parameter:
+		struct vak* vakkenlijst: een lijst met alle vakken.
+		int lengteLijst: het aantal vakken in de lijst.
+	Beschrijving:
+		Deze functie veranderd een item van de lijst door de lijst zelf mee te krijgen.
+*/
 
 void verander_vak_parameter_array_pointers(struct vak* vakkenlijst, int lengteLijst) {
 	int errorAfhandeling;
@@ -99,6 +124,13 @@ void verander_vak_parameter_array_pointers(struct vak* vakkenlijst, int lengteLi
 	vakkenlijst[index].ECTS = aantalECTS;
 }
 
+
+/*
+	Functie: vakken_main
+	Beschrijving:
+		Deze functie bevat de code om de opdracht te voltooien, het kan via de runfile worden aangeroepen.
+		Hierin wordt elke functie uit de opdracht aangeroepen en de vakkenlijst steeds geprint.
+*/
 
 int vakken_main() {	
 	struct vak vakkenlijst[6] = { {"PNID", 12}, {"NID1", 9}, {"NID2", 9}, {"PES", 12}, {"ES1", 9}, {"ES2", 9}};
