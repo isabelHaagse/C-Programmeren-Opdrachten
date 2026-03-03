@@ -6,6 +6,7 @@
 */
 
 int main(void) {
+    int returnWaarde;
     // Week 1
 	//belastingCalc_main();             // Opdracht 1
 	//hogerLagerSpel();                 // Opdracht 2
@@ -19,7 +20,8 @@ int main(void) {
     //voetbaluitslagen_verwerking_main();   // Opdracht 4
 
     // Week 3
-    afdruk_array_main(); // Opdracht 1
+    //afdruk_array_main(); // Opdracht 1
+    returnWaarde = random_array_main(); // Opdracht 2
 
-	return 0;
+	return returnWaarde;
 }
