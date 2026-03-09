@@ -20,10 +20,10 @@ int main(void) {
     //voetbaluitslagen_verwerking_main();   // Opdracht 4
 
     // Week 3
-    //afdruk_array_main();                  // Opdracht 1
-    //returnWaarde = random_array_main();   // Opdracht 2
-    //returnWaarde = vakken_main();         // Opdracht 3
-    returnWaarde = team_samenstellen();   // Opdracht 4
+    //afdruk_array_main();                      // Opdracht 1
+    //returnWaarde = random_array_main();       // Opdracht 2
+    //returnWaarde = vakken_main();             // Opdracht 3
+    returnWaarde = team_samenstellen_main();  // Opdracht 4
 
 
 	return returnWaarde;

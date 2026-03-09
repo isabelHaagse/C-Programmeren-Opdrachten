@@ -1,5 +1,10 @@
 
 
+/*
+	Doel van de opdracht: Leren omgaan met pointers, structs en variabele lengte van array's.
+	Er moet een array van structers worden aangepast en elementen worden toegevoegd.
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include  <string.h>
@@ -13,16 +18,29 @@ struct teamlid {
 
 };
 
+
+/*
+	Functie: generatie_id
+	Return:
+		int, het unieke id-nummer.
+	Beschrijving:
+		Deze functie genereert een uniek id-nummer.
+*/
+
 int generatie_id() {
 	static int id = 999;
 	id++;
 	return id;
 }
 
-//struct teamlid* vul_team_in() {
-//	teamlid 
-//}
 
+/*
+	Functie: nieuwe_speler
+	Return:
+		teamlid, het nieuwe teamlid.
+	Beschrijving:
+		Deze functie maakt een nieuwe speler aan.
+*/
 
 struct teamlid nieuwe_speler() {
 	struct teamlid teamlid = { 0 };
@@ -55,6 +73,17 @@ struct teamlid nieuwe_speler() {
 }
 
 
+/*
+	Functie: voeg_speler_aan_team
+	Parameter:
+		teamlid team[]: een pointer naar het eerste teamlid in de array met teamleden.
+		int grootteTeam: aantal teamleden in een team.
+	Return:
+		teamlid*, een pointer naar de eerste speler in het team met de nieuwe samenstelling.
+	Beschrijving:
+		Deze functie voegt een speler aan het team toe.
+*/
+
 struct teamlid* voeg_speler_aan_team(struct teamlid team[], int grootteTeam) {
 	struct teamlid* nieuwTeam = NULL;
 
@@ -73,6 +102,16 @@ struct teamlid* voeg_speler_aan_team(struct teamlid team[], int grootteTeam) {
 
 	return nieuwTeam;
 }
+
+
+/*
+	Functie: zoek_op_opleiding
+	Parameter:
+		teamlid team[]: een pointer naar het eerste teamlid in de array met teamleden.
+		int grootteTeam: aantal teamleden in een team.
+	Beschrijving:
+		Deze functie print de spelers die een opleiding doen die de gebruiker invoert.
+*/
 
 void zoek_op_opleiding(struct teamlid team[], int grootteTeam) {
 	int errorAfhandeling;
@@ -94,7 +133,18 @@ void zoek_op_opleiding(struct teamlid team[], int grootteTeam) {
 }
 
 
-int team_samenstellen() {
+/*
+	Functie: voeg_speler_aan_team
+	Parameter:
+		teamlid team[]: een pointer naar het eerste teamlid in de array met teamleden.
+		int grootteTeam: aantal teamleden in een team.
+	Return:
+		teamlid*, een pointer naar de eerste speler in het team met de nieuwe samenstelling.
+	Beschrijving:
+		Deze functie voegt een speler aan het team toe.
+*/
+
+int team_samenstellen_main() {
 
 	struct teamlid* team = malloc(sizeof(struct teamlid));
 	int aantalSpelers = 3;
