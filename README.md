@@ -1,1 +1,1 @@
-# C-Programmeren-Practicums-Git
+# C-Programmeren-Practica
