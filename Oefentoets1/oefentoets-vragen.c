@@ -141,7 +141,7 @@ int opdracht8_main() {
 
 /*
 	Opdracht 9
-	Antwoord = 8 = ?
+	Antwoord = 4 = c
 */
 
 void functie_doe_iets(int x[]) {
@@ -192,7 +192,7 @@ int opdracht10_main() {
 
 /*
 	Opdracht 11
-	Antwoord = ?
+	Antwoord = d
 */
 
 //void opdracht11_main() {
@@ -205,7 +205,7 @@ int opdracht10_main() {
 
 /*
 	Opdracht 12
-	Antwoord = ?
+	Antwoord = c
 */
 
 char* omschrijving_land(char landcode[]) {
@@ -234,7 +234,7 @@ int opdracht13_main() {
 
 /*
 	Opdracht 14 - geen code vraag
-	Antwoord = ?
+	Antwoord = c
 */
 
 
@@ -283,7 +283,7 @@ int opdracht16_main() {
 
 /*
 	Opdracht 17
-	Antwoord = 1 = b?
+	Antwoord = 1 = d
 */
 
 int opdracht17_main() {
