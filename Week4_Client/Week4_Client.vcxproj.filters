@@ -18,5 +18,8 @@
     <ClCompile Include="..\Week4\runfile_client.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="client_vraag_klimaat.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

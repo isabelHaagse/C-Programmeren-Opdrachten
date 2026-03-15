@@ -18,5 +18,8 @@
     <ClCompile Include="runfile_server.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="server_ant_klimaat.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

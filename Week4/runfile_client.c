@@ -7,14 +7,19 @@
 
 #include <iphlpapi.h>
 #include <stdio.h>
+#include <stdlib.h>
 
 #pragma comment(lib, "Ws2_32.lib")
+#pragma warning(disable : 4996)
 
 #define DEFAULT_PORT "27015"
 #define DEFAULT_BUFLEN 512
 
+char* klimaat_vraag(double temperatuur, int luchtvochtigheid, int* lengte);
+int verwerking_klimaat_fanspeed(char* antwoord);
 
-int main() {
+
+int main(void) {
 	WSADATA wsaData;
 	int iResult;
 
@@ -33,7 +38,6 @@ int main() {
 	hints.ai_family = AF_UNSPEC;
 	hints.ai_socktype = SOCK_STREAM;
 	hints.ai_protocol = IPPROTO_TCP;
-
 
 
 	// Resolve the server address and port
@@ -82,20 +86,26 @@ int main() {
 	}
 
 
+	printf("Client\n");
 
+	char recvbuf[DEFAULT_BUFLEN];
 	int recvbuflen = DEFAULT_BUFLEN;
 
-	const char* sendbuf = "this is a test";
-	char recvbuf[DEFAULT_BUFLEN];
+	int lengteSendbuf = 0;
+	char* sendbuf = klimaat_vraag(30.0, 50, &lengteSendbuf);
+
 
 	// Send an initial buffer
-	iResult = send(ConnectSocket, sendbuf, (int)strlen(sendbuf), 0);
+	iResult = send(ConnectSocket, sendbuf, lengteSendbuf+1, 0);
 	if (iResult == SOCKET_ERROR) {
 		printf("send failed: %d\n", WSAGetLastError());
 		closesocket(ConnectSocket);
 		WSACleanup();
 		return 1;
 	}
+
+	free(sendbuf);
+	
 
 	printf("Bytes Sent: %ld\n", iResult);
 
@@ -112,8 +122,14 @@ int main() {
 	// Receive data until the server closes the connection
 	do {
 		iResult = recv(ConnectSocket, recvbuf, recvbuflen, 0);
-		if (iResult > 0)
+		if (iResult > 0) {
 			printf("Bytes received: %d\n", iResult);
+
+			// Verwerking van antwoord
+			int snelheidFan = verwerking_klimaat_fanspeed(recvbuf);
+
+			printf("Benodigde fanspeed: %d\n", snelheidFan);
+		}
 		else if (iResult == 0)
 			printf("Connection closed\n");
 		else

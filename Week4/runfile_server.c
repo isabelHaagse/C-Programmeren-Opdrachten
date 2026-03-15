@@ -8,12 +8,18 @@
 
 #include <iphlpapi.h>
 #include <stdio.h>
+#include <stdlib.h>
 
 #pragma comment(lib, "Ws2_32.lib")
+#pragma warning(disable : 4996)
+
 #define DEFAULT_PORT "27015"
 #define DEFAULT_BUFLEN 512
 
-int main() {
+
+char* klimaat_antwoord(char* vraag, int lengteVraag, int* lengteAntwoord);
+
+int main(void) {
 	SOCKET ListenSocket = INVALID_SOCKET;
 	WSADATA wsaData;
 
@@ -75,56 +81,71 @@ int main() {
 	}
 
 
-	// Connectie accepteren
 	SOCKET ClientSocket;
-	ClientSocket = INVALID_SOCKET;
-
-	// Accept a client socket
-	ClientSocket = accept(ListenSocket, NULL, NULL);
-	if (ClientSocket == INVALID_SOCKET) {
-		printf("accept failed: %d\n", WSAGetLastError());
-		closesocket(ListenSocket);
-		WSACleanup();
-		return 1;
-	}
-
-	// No longer need server socket
-	closesocket(ListenSocket);
-
-
 
 	// Om de data te ontvangen en verzenden
 	char recvbuf[DEFAULT_BUFLEN];
 	int iSendResult;
 	int recvbuflen = DEFAULT_BUFLEN;
+	char* antwoord = NULL;
+	int lengteAntwoord = 0;
 
-	// Receive until the peer shuts down the connection
-	do {
+	printf("Server\n");
 
-		iResult = recv(ClientSocket, recvbuf, recvbuflen, 0);
-		if (iResult > 0) {
-			printf("Bytes received: %d\n", iResult);
+	for (;;) { // accepteer eindeloos nieuwe clients
+		SOCKET ClientSocket = accept(ListenSocket, NULL, NULL);
+		if (ClientSocket == INVALID_SOCKET) {
+			printf("accept failed: %d\n", WSAGetLastError());
+			// Server hoeft niet meteen te stoppen; ga gewoon door naar de volgende accept
+			continue;
+		}
 
-			// Echo the buffer back to the sender
-			iSendResult = send(ClientSocket, recvbuf, iResult, 0);
-			if (iSendResult == SOCKET_ERROR) {
-				printf("send failed: %d\n", WSAGetLastError());
-				closesocket(ClientSocket);
-				WSACleanup();
-				return 1;
+		do {
+			iResult = recv(ClientSocket, recvbuf, recvbuflen, 0);
+			if (iResult > 0) {
+				printf("Bytes received: %d\n", iResult);
+				// Verwerk verzoek
+				antwoord = klimaat_antwoord(recvbuf, iResult, &lengteAntwoord);
+				if (antwoord == NULL) {
+					printf("Antwoord == NULL\n");
+				}
+				else {
+					printf("%s\n", antwoord);
+				}
+				// Stuur antwoord op verzoek
+				iSendResult = send(ClientSocket, antwoord, lengteAntwoord + 1, 0);
+				if (iSendResult == SOCKET_ERROR) {
+					printf("send failed: %d\n", WSAGetLastError());
+					break;
+				}
+				printf("Bytes sent: %d\n", iSendResult);
+
+				// Free aangemaakte memory
+				free(antwoord);
 			}
-			printf("Bytes sent: %d\n", iSendResult);
-		}
-		else if (iResult == 0)
-			printf("Connection closing...\n");
-		else {
-			printf("recv failed: %d\n", WSAGetLastError());
-			closesocket(ClientSocket);
-			WSACleanup();
-			return 1;
-		}
+			else if (iResult == 0) {
+				printf("Connection closing...\n");
+			}
+			else {
+				printf("recv failed: %d\n", WSAGetLastError());
+			}
 
-	} while (iResult > 0);
+		} while (iResult > 0);
+
+
+		// client afsluiten
+		int s = shutdown(ClientSocket, SD_SEND);
+		if (s == SOCKET_ERROR) {
+			printf("shutdown failed: %d\n", WSAGetLastError());
+		}
+		closesocket(ClientSocket);
+
+	}
+
+
+	// No longer need server socket
+	closesocket(ListenSocket);
+	
 
 
 	// Verbinding verbreken

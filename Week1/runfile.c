@@ -26,7 +26,7 @@ int main(void) {
     //returnWaarde = team_samenstellen_main();  // Opdracht 4
 
     //Oefentoets
-    returnWaarde = oefentoets1_main();
+    //returnWaarde = oefentoets1_main();
 
 
 	return returnWaarde;
