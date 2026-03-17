@@ -9,7 +9,9 @@ char* klimaat_vraag(double temperatuur, int luchtvochtigheid, int* lengte) {
 	char vraag[100];
 	int vraagLengte = sizeof(vraag) / sizeof(vraag[0]);
 
-	int error = snprintf(vraag, vraagLengte, "Temperatuur:%.2f;Luchtvochtigheid:%d\n", temperatuur, luchtvochtigheid);
+	//int error = snprintf(vraag, vraagLengte, "Temperatuur:%.2f;Luchtvochtigheid:%d\n", temperatuur, luchtvochtigheid); // Temperatuur & Luchtvochtigheid
+	int error = snprintf(vraag, vraagLengte, "Temperatuur:%.2f;", temperatuur); // Temperatuur
+	//int error = snprintf(vraag, vraagLengte, "Luchtvochtigheid:%d;", luchtvochtigheid); // Luchtvochtigheid
 
 	if (error < 0) {
 		return NULL;

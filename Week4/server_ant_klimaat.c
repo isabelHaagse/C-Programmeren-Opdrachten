@@ -7,14 +7,23 @@
 char* klimaat_antwoord(char* vraag, int lengteVraag, int* lengteAntwoord) {
 	char* antwoord = NULL;
 	int snelheid = 0;
-	double temperatuur;
-	int luchtvochtigheid;
+	double temperatuur = 0;
+	int luchtvochtigheid = 0;
 
 	char antwoordBuffer[60];
 	int lengteAntwoordBuffer = sizeof(antwoordBuffer) / sizeof(antwoordBuffer[0]);
 
+
+
 	// Vraag ontleden
-	int statusOntledenVraag = sscanf(vraag, " Temperatuur:%lf;Luchtvochtigheid:%d\n", &temperatuur, &luchtvochtigheid);
+	int statusOntledenVraag = sscanf(vraag, " Temperatuur:%lf;Luchtvochtigheid:%d;", &temperatuur, &luchtvochtigheid);
+
+	if (statusOntledenVraag < 2) {
+		int statusOntledenVraagLucht = sscanf(vraag, " Luchtvochtigheid:%d;", &luchtvochtigheid);
+		int statusOntledenVraagTemp = sscanf(vraag, " Temperatuur:%lf;", &temperatuur);
+	}	
+
+	printf("Temp: %lf, Lucht: %d\n", temperatuur, luchtvochtigheid);
 
 	// Snelheid bepalen
 	if (temperatuur > 30 || luchtvochtigheid > 70) {

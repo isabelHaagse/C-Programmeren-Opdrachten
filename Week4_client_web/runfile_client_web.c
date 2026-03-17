@@ -12,7 +12,7 @@
 #pragma comment(lib, "Ws2_32.lib")
 #pragma warning(disable : 4996)
 
-#define DEFAULT_PORT "27015"
+#define DEFAULT_PORT "80"
 #define DEFAULT_BUFLEN 512
 
 char* klimaat_vraag(double temperatuur, int luchtvochtigheid, int* lengte);
@@ -41,7 +41,7 @@ int main(void) {
 
 
 	// Resolve the server address and port
-	iResult = getaddrinfo("127.0.0.1", DEFAULT_PORT, &hints, &result);
+	iResult = getaddrinfo("nginx.org", DEFAULT_PORT, &hints, &result);
 	if (iResult != 0) {
 		printf("getaddrinfo failed: %d\n", iResult);
 		WSACleanup();
@@ -91,21 +91,21 @@ int main(void) {
 	char recvbuf[DEFAULT_BUFLEN];
 	int recvbuflen = DEFAULT_BUFLEN;
 
-	int lengteSendbuf = 0;
-	char* sendbuf = klimaat_vraag(30.0, 80, &lengteSendbuf);
+	char sendbuf[] =
+		"GET / HTTP/1.1\r\n"
+		"Host: nginx.org\r\n"
+		"Connection: close\r\n"
+		"\r\n";
 
 
 	// Send an initial buffer
-	iResult = send(ConnectSocket, sendbuf, lengteSendbuf+1, 0);
+	iResult = send(ConnectSocket, sendbuf, sizeof(sendbuf), 0);
 	if (iResult == SOCKET_ERROR) {
 		printf("send failed: %d\n", WSAGetLastError());
 		closesocket(ConnectSocket);
 		WSACleanup();
 		return 1;
 	}
-
-	free(sendbuf);
-	
 
 	printf("Bytes Sent: %ld\n", iResult);
 
@@ -121,14 +121,15 @@ int main(void) {
 
 	// Receive data until the server closes the connection
 	do {
-		iResult = recv(ConnectSocket, recvbuf, recvbuflen, 0);
+		iResult = recv(ConnectSocket, recvbuf, recvbuflen - 1, 0);
 		if (iResult > 0) {
 			printf("Bytes received: %d\n", iResult);
 
-			// Verwerking van antwoord
-			int snelheidFan = verwerking_klimaat_fanspeed(recvbuf);
+			recvbuf[iResult] = '\0';
 
-			printf("Benodigde fanspeed: %d\n", snelheidFan);
+			// Verwerking van antwoord
+			printf("%s\n", recvbuf);
+			
 		}
 		else if (iResult == 0)
 			printf("Connection closed\n");
