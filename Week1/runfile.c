@@ -28,6 +28,9 @@ int main(void) {
     //Oefentoets
     //returnWaarde = oefentoets1_main();
 
+    // Week 5
+    returnWaarde = sudoku_main();
+
 
 	return returnWaarde;
 }
