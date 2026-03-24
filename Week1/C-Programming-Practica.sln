@@ -13,7 +13,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Oefentoets1", "..\Oefentoet
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Week4", "..\Week4\Week4.vcxproj", "{C19CD79A-4D0E-4446-A6C6-E431DFD37C18}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Week4_Client", "..\Week4_Client\Week4_Client.vcxproj", "{83C0AFB6-83CF-4D3E-A10B-E889A514ACBD}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Week4_client", "..\Week4_Client\Week4_Client.vcxproj", "{83C0AFB6-83CF-4D3E-A10B-E889A514ACBD}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Week4_client_web", "..\Week4_client_web\Week4_client_web.vcxproj", "{4FED2FA8-2A4F-4C44-9444-73D82C5B4AB0}"
 EndProject
