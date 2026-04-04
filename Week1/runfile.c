@@ -5,6 +5,7 @@
 * Uncommand de opdracht die weergegeven moet worden.
 */
 
+
 int main(void) {
     int returnWaarde = 0;
     // Week 1
@@ -29,8 +30,15 @@ int main(void) {
     //returnWaarde = oefentoets1_main();
 
     // Week 5
-    returnWaarde = sudoku_main();
+    //returnWaarde = sudoku_main();     // Opdracht 1
 
+    // Week 6
+    //returnWaarde = verschillende_arrays_main();   // Opdracht 1
+    //returnWaarde = linkedlists_main();            // Opdracht 2
+
+    // Week 7
+    returnWaarde = qsort_main();  // Opdracht 1
+    //returnWaarde = graden_main(); // Opdracht 2
 
 	return returnWaarde;
 }
