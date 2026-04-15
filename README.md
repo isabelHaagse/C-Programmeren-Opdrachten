@@ -58,9 +58,11 @@ In de laatste week werden functiepointers behandeld. Hierbij werd ook de werking
 ## Gebruik
 Download het project lokaal door het te clonen via Git. 
 Open de terminal en voer het volgende commando uit:
+
 '''
 git clone https://github.com/isabelHaagse/C-Programmeren-Opdrachten.git
-''' 
+'''
+ 
 Nu staat de repository lokaal op de pc.
 Open vervolgens de map in Visual Studio.
 
